@@ -5,17 +5,19 @@
 #define MAX_LINE_LENGTH 1000
 
 char **parseFile(char *fileName) {
-    FILE *input = fopen(fileName, "r");
-    char **lines = NULL;
-    char buffer[MAX_LINE_LENGTH];
-    int nbLines = 0;
-    while (fgets(buffer, sizeof(buffer), input)) {
-        lines = realloc(lines, (nbLines + 1) * sizeof(char *));
-        lines[nbLines] = malloc(strlen(buffer) + 1);
-        strcpy(lines[nbLines], buffer);
-        nbLines++;
-    }
-    fclose(input);
+  FILE *input = fopen(fileName, "r");
+  char **lines = NULL;
+  char buffer[MAX_LINE_LENGTH];
+  int nbLines = 0;
+  while (fgets(buffer, sizeof(buffer), input)) {
+    lines = realloc(lines, (nbLines + 1) * sizeof(char *));
+    lines[nbLines] = malloc(strlen(buffer) + 1);
+    strcpy(lines[nbLines], buffer);
+    nbLines++;
+  }
+  lines = realloc(lines, (nbLines + 1) * sizeof(char *));
+  lines[nbLines] = NULL;
+  fclose(input);
   return lines;
 }
 
@@ -36,5 +38,7 @@ char **splitOnChars(char *str, char *separators) {
     }
     else buffer[buffersize++] = charBuffer;
   }
+  elements = realloc(elements, (nbElements + 1) * sizeof(char *));
+  elements[nbElements] = NULL;
   return elements;
 }
