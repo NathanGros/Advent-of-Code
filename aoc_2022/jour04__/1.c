@@ -33,4 +33,3 @@ int main() {
     free(lines);
     return 0;
 }
-
