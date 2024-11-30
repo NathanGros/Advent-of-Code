@@ -1,0 +1,5 @@
+int strlen(char *s) -- string length
+char* strchr(char *s, char c) -- substring from c to end (including c)
+int strcmp(char *s1, char *s2) -- lexicographical comparaison (return -1, 0 or 1)
+char* strcspn(char *s1, char *s2) -- return substring from begin of s1 to first character in s2 (not included), GOOD FOR PARSING !!!!
+char* strdup(char *s) -- duplicate s
