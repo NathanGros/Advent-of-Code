@@ -12,7 +12,7 @@ int processLine(char *line) {
     i++;
   }
   printf("\n");
-  return 2;
+  return 1;
 }
 
 int main() {

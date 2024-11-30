@@ -1,32 +1,35 @@
 #include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "util.h"
 
-void processLine(char *line, int *res) {
-	*res += 1;
+int processLine(char *line) {
+  char **elements = splitOnChars(line, ";-,");
+  int i = 0;
+  while (elements[i]) {
+    printf("%s;", elements[i]);
+    i++;
+  }
+  printf("\n");
+  return 1;
 }
 
 int main() {
-	//read file
-	FILE *file;
-	file = fopen("input.txt", "r");
-	char line[100]; 
-	fgets(line, 100, file);
+  //read and store all lines
+  char **lines = parseFile("./input.txt");
+  //get number of lines
+  int nbLines = 0;
+  while (lines[++nbLines]);
 
-	//variables
-	int res = 0;
+  int result = 0;
+  for (int i = 0; i < nbLines; i++) {
+    result += processLine(lines[i]);
+  }
+  printf("Result: %d\n", result);
 
-	//loop
-	while (!feof(file)) {
-		//process line here
-		printf("%s", line);
-		processLine(line, &res);
-
-		//new line
-		fgets(line, 100, file);
-	}
-
-	//print result
-	printf("\n\nResult: %d\n", res);
-	return 0;
+  //de-init
+  for (int i = 0; i < nbLines; i++) free(lines[i]);
+  free(lines);
+  return 0;
 }
-
