@@ -29,4 +29,3 @@ int main() {
 	printf("\n\nResult: %d\n", res);
 	return 0;
 }
-

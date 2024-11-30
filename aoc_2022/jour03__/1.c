@@ -1,7 +1,9 @@
 #include <stdbool.h>
 #include <stdio.h>
+#include <string.h>
 
 void processLine(char *line, int *res) {
+	int len = strlen(line);
 	*res += 1;
 }
 
@@ -29,4 +31,3 @@ int main() {
 	printf("\n\nResult: %d\n", res);
 	return 0;
 }
-
