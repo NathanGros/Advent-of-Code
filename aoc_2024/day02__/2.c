@@ -22,6 +22,10 @@ int main() {
   //get number of lines
   int nbLines = 0;
   while (lines[++nbLines]);
+  //get number of characters on the first line in case of grid input
+  int nbCharPerLine = 0;
+  while (lines[0][++nbCharPerLine]);
+  nbCharPerLine--;
 
   //actual processing
   int result = 0;
