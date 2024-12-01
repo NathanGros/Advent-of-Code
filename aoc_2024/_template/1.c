@@ -16,12 +16,14 @@ int processLine(char *line) {
 }
 
 int main() {
+  //init
   //read and store all lines
   char **lines = parseFile("./input.txt");
   //get number of lines
   int nbLines = 0;
   while (lines[++nbLines]);
 
+  //actual processing
   int result = 0;
   for (int i = 0; i < nbLines; i++) {
     result += processLine(lines[i]);

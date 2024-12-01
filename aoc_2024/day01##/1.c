@@ -43,7 +43,6 @@ int main() {
   //computes the difference between each terms of the columns
   int result = 0;
   for (int i = 0; i < nbLines; i++) {
-    printf("%d, %d\n", leftColumn[i], rightColumn[i]);
     result += difference(leftColumn[i], rightColumn[i]);
   }
   printf("Result: %d\n", result);
