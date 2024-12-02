@@ -1,11 +1,8 @@
-f = open("input.txt", "r")
-lines = [l[:-1] for l in f.readlines()]
-linenumbers = [[int(i) for i in line.split()] for line in lines]
-
+lines = [list(map(int, l.split())) for l in open("input.txt")]
 
 def isvalid(l):
     for i in range(len(l)):
-        l2 = [i for i in l]
+        l2 = l.copy()
         l2.pop(i)
         conditions = [[
             l2[i] < l2[i+1],
@@ -17,9 +14,4 @@ def isvalid(l):
             return True
     return False
 
-
-print(
-    sum(
-        isvalid(l) for l in linenumbers
-    )
-)
+print(sum(isvalid(l) for l in lines))
