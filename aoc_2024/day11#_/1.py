@@ -1,8 +1,10 @@
 line = [list(map(int, l.split())) for l in open("input.txt")][0]
 
-for i in range(6):
+#compute for every stone of the input, for 25 blinks
+for i in range(25):
     l = []
     for stone in line:
+        #problem rules
         if stone == 0:
             l.append(1)
         elif len(str(stone)) % 2 == 1:
