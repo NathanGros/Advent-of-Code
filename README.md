@@ -1,6 +1,8 @@
 # My Advent of Code solutions
 
-Here are my solutions for the Advent of Code problems, with my input files
+Here are my solutions for the Advent of Code problems
+
+Eric Wastl <3
 
 ## Advent of Code website:
 https://adventofcode.com
